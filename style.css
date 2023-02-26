@@ -1,0 +1,74 @@
+body {
+  background-color: rgba(12, 35, 50, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #f0f8ff;
+}
+
+p {
+  text-align: center;
+  color: #ecf4fa;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.bgd {
+  padding: 20px;
+}
+.input {
+  all: unset;
+  display: block;
+  border: 3px solid #eb6477;
+  border-radius: 10px;
+  background-color: #ecf4fa;
+  padding: 10px;
+  font-size: 20px;
+  width: 30%;
+  text-align: center;
+  transition: all 500ms ease-in-out;
+}
+
+.input:hover,
+.input:focus {
+  box-shadow: 1px 1px 25px 10px #eb6477;
+}
+
+button {
+  background-color: rgba(112, 177, 176, 255);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 10px;
+  transition: all 500ms ease-in-out;
+}
+
+button:hover {
+  box-shadow: 1px 1px 25px 10px rgba(46, 215, 209, 0.4);
+  background-color: rgb(255, 255, 255);
+  color: rgba(112, 177, 176, 255);
+}
+
+.restart {
+  background-color: rgba(230, 97, 102, 255);
+  color: aliceblue;
+}
+
+img {
+  width: 250px;
+  margin: auto;
+  display: block;
+}
