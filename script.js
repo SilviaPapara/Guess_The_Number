@@ -13,7 +13,7 @@ let ending;
 
 guessBtn.addEventListener("click", function () {
   const guess = parseInt(document.getElementById("guess").value);
-
+  document.getElementById("guess").value = "";
   if (isNaN(guess)) {
     updateText(message, "Please enter a number");
     return;
@@ -47,30 +47,36 @@ guessBtn.addEventListener("click", function () {
       "green"
     );
     guessBtn.disabled = true;
-
+    guessedNumbers.push(guess);
     nrOfAttempts.textContent = "";
     messageNrGuesses.textContent = "";
     return;
   }
 
+  if (attempts === 1) {
+    updateText(message, `You Lose! My number was ${correctNumber}`);
+    nrOfAttempts.style.visibility = "hidden";
+    guessBtn.disabled = true;
+    guessedNumbers.push(guess);
+    messageNrGuesses.textContent = `Your guessed numbers are: ${guessedNumbers}`;
+    return;
+  }
+
   if (guess < correctNumber || guess > correctNumber) {
+    nrOfAttempts.style.visibility = "visible";
+    messageNrGuesses.style.visibility = "visible";
+
     guessedNumbers.push(guess);
     attempts--;
+
     nrOfAttempts.textContent = `You have ${attempts} more attempts`;
     messageNrGuesses.textContent = `Your guessed numbers are: ${guessedNumbers}`;
+
     if (guess < correctNumber) {
       updateText(message, "Your number is too low");
       return;
     }
     updateText(message, "Your number is too high");
-    return;
-  }
-
-  if (attempts === 0) {
-    updateText(message, `You Lose! My number was ${correctNumber}`);
-
-    nrOfAttempts.style.visibility = "hidden";
-    guessBtn.disabled = true;
     return;
   }
 });
